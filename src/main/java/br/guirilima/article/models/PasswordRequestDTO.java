@@ -11,7 +11,7 @@ public class PasswordRequestDTO {
     @Size(max = 20)
     private String login;
 
-    @Size(min = 9, message = "Deve conter no minimo 9 caracteres")
+    @Size(min = 9, message = "{validation.constraints.size.message}")
     @PasswordValid
     private String password;
 

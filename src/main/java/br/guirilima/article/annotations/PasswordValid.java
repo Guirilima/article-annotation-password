@@ -13,18 +13,18 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @javax.validation.constraints.Pattern.List({
     @Pattern(
-        regexp = "^(?=.*[0-9]).*", message = "Deve conter pelo menos um caractere númerico"
+        regexp = "^(?=.*[0-9]).*", message = "{validation.constraints.numeric.message}"
 ),  @Pattern(
-        regexp = "^(?=.*[a-z])(?=.*[A-Z]).*", message = "Deve conter pelo menos uma letra Minuscula e uma Maiuscula"
+        regexp = "^(?=.*[a-z])(?=.*[A-Z]).*", message = "{validation.constraints.upAndLowLetter.message}"
 ),  @Pattern(
-        regexp = "^(?=.*[!@#$%^&*()-+]).*", message = "Deve conter pelo menos um caractere especial"
+        regexp = "^(?=.*[!@#$%^&*()-+]).*", message = "{validation.constraints.special.message}"
 )})
 @Target({FIELD}) /* A anotação PasswordValid será atribuída a campos da classe. */
 @Retention(RUNTIME) /* Estaremos utilizando a anotação PasswordValid em tempo de execução */
 @Constraint(validatedBy = PasswordConstraints.class) /* A classe PasswordConstraints, será a responsável pela validação da anotaçao PasswordValid */
 public @interface PasswordValid {
 
-    String message() default "A senha não pode conter espaços em branco ou caracteres repetidos.";
+    String message() default "{validation.constraints.default.message}";
 
     Class<?>[] groups() default {};
 

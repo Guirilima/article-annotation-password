@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 @Data
 public class PasswordRequestDTO {
 
+    @Size(max = 20)
     private String login;
 
     @Size(min = 9, message = "Deve conter no minimo 9 caracteres")
